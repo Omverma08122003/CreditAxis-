@@ -1,0 +1,25 @@
+spring:
+  application:
+    name: creditaxis
+
+  datasource:
+    # Use environment variables in production (Render). When running locally, the .env values are used by your shell or IDE.
+    url: ${SPRING_DATASOURCE_URL:jdbc:postgresql://localhost:5432/creditaxis}
+    username: ${SPRING_DATASOURCE_USERNAME:creditaxis}
+    password: ${SPRING_DATASOURCE_PASSWORD:password}
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+  flyway:
+    enabled: ${SPRING_FLYWAY_ENABLED:false}
+
+server:
+  port: ${PORT:10000}
+
+logging:
+  level:
+    root: INFO
